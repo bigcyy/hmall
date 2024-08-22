@@ -1,4 +1,5 @@
 hm:
   db:
     host: mysql
+    un: root
     pw: root
