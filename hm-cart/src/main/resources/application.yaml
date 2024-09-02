@@ -8,6 +8,8 @@ server:
 feign:
   okhttp:
     enabled: true # 开启OKHttp功能
+  sentinel:
+    enabled: true
 
 hm:
   db:

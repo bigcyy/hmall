@@ -35,15 +35,15 @@ public class ItemController {
 
     @ApiOperation("根据id批量查询商品")
     @GetMapping
-    public List<ItemDTO> queryItemByIds(@RequestParam("ids") List<Long> ids){
+    public List<ItemDTO> queryItemByIds(@RequestParam("ids") List<Long> ids) throws InterruptedException {
+        // 模拟慢请求
+        Thread.sleep(500);
         return itemService.queryItemByIds(ids);
     }
 
     @ApiOperation("根据id查询商品")
     @GetMapping("{id}")
-    public ItemDTO queryItemById(@PathVariable("id") Long id) throws InterruptedException {
-        // 模拟慢请求
-        Thread.sleep(500);
+    public ItemDTO queryItemById(@PathVariable("id") Long id){
         return BeanUtils.copyBean(itemService.getById(id), ItemDTO.class);
     }
 
