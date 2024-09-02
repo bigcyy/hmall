@@ -41,7 +41,9 @@ public class ItemController {
 
     @ApiOperation("根据id查询商品")
     @GetMapping("{id}")
-    public ItemDTO queryItemById(@PathVariable("id") Long id) {
+    public ItemDTO queryItemById(@PathVariable("id") Long id) throws InterruptedException {
+        // 模拟慢请求
+        Thread.sleep(500);
         return BeanUtils.copyBean(itemService.getById(id), ItemDTO.class);
     }
 
